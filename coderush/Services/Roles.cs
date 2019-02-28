@@ -11,10 +11,10 @@ namespace coderush.Services
 {
     public class Roles : IRoles
     {
-        private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly RoleManager<ApplicationRole> _roleManager;
         private readonly UserManager<ApplicationUser> _userManager;
 
-        public Roles(RoleManager<IdentityRole> roleManager,
+        public Roles(RoleManager<ApplicationRole> roleManager,
             UserManager<ApplicationUser> userManager)
         {
             _roleManager = roleManager;
@@ -32,15 +32,15 @@ namespace coderush.Services
                     {
                         string roleName = (string)itm.GetValue(item);
                         if (!await _roleManager.RoleExistsAsync(roleName))
-                            await _roleManager.CreateAsync(new IdentityRole(roleName));
+                            await _roleManager.CreateAsync(new ApplicationRole(roleName));
                     }
                 }
             }
         }
 
-        public async Task AddToRoles(string applicationUserId)
+        public async Task AddToRoles(int applicationUserId)
         {
-            var user = await _userManager.FindByIdAsync(applicationUserId);
+            var user = await _userManager.FindByIdAsync(applicationUserId.ToString());
             if (user != null)
             {
                 var roles = _roleManager.Roles;

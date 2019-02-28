@@ -5,6 +5,17 @@
     <UserSecretsId>aspnet-coderush-090A0FD1-7DA3-4537-B736-EF0C0F063935</UserSecretsId>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Migrations\20180812075108_initialdb.cs" />
+    <Compile Remove="Migrations\20180812075108_initialdb.Designer.cs" />
+    <Compile Remove="Migrations\20190227093330_1stInit.cs" />
+    <Compile Remove="Migrations\20190227093330_1stInit.Designer.cs" />
+    <Compile Remove="Migrations\20190227093746_1stInit.cs" />
+    <Compile Remove="Migrations\20190227093746_1stInit.Designer.cs" />
+    <Compile Remove="Migrations\20190227095128_Init.cs" />
+    <Compile Remove="Migrations\20190227095128_Init.Designer.cs" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.9" />

@@ -20,11 +20,11 @@ namespace coderush.Controllers.Api
     {
         private readonly ApplicationDbContext _context;
         private readonly UserManager<ApplicationUser> _userManager;
-        private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly RoleManager<ApplicationRole> _roleManager;
 
         public UserController(ApplicationDbContext context,
                         UserManager<ApplicationUser> userManager,
-                        RoleManager<IdentityRole> roleManager)
+                        RoleManager<ApplicationRole> roleManager)
         {
             _context = context;
             _userManager = userManager;
@@ -90,7 +90,7 @@ namespace coderush.Controllers.Api
             UserProfile profile = payload.value;
             if (profile.Password.Equals(profile.ConfirmPassword))
             {
-                var user = await _userManager.FindByIdAsync(profile.ApplicationUserId);
+                var user = await _userManager.FindByIdAsync(profile.ApplicationUserId.ToString());
                 var result = await _userManager.ChangePasswordAsync(user, profile.OldPassword, profile.Password);
             }
             profile = _context.UserProfile.SingleOrDefault(x => x.ApplicationUserId.Equals(profile.ApplicationUserId));

@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using coderush.Models;
 
 namespace coderush.Data
 {
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, int, ApplicationUserClaim, ApplicationUserRole, ApplicationUserLogin, ApplicationRoleClaim, ApplicationUserToken>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
@@ -21,6 +22,13 @@ namespace coderush.Data
             // Customize the ASP.NET Identity model and override the defaults if needed.
             // For example, you can rename the ASP.NET Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);
+            builder.Entity<ApplicationUser>().ToTable("Users");
+            builder.Entity<ApplicationRole>().ToTable("Roles");
+            builder.Entity<ApplicationUserClaim>().ToTable("UserClaim");
+            builder.Entity<ApplicationUserRole>().ToTable("UserRole");
+            builder.Entity<ApplicationUserLogin>().ToTable("UserLogin");
+            builder.Entity<ApplicationRoleClaim>().ToTable("RoleClaim");
+            builder.Entity<ApplicationUserToken>().ToTable("UserToken");
         }
 
         public DbSet<coderush.Models.ApplicationUser> ApplicationUser { get; set; }

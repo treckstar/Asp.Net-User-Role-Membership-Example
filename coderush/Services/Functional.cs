@@ -19,14 +19,14 @@ namespace coderush.Services
     public class Functional : IFunctional
     {
         private readonly UserManager<ApplicationUser> _userManager;
-        private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly RoleManager<ApplicationRole> _roleManager;
         private readonly ApplicationDbContext _context;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly IRoles _roles;
         private readonly SuperAdminDefaultOptions _superAdminDefaultOptions;
 
         public Functional(UserManager<ApplicationUser> userManager,
-           RoleManager<IdentityRole> roleManager,
+           RoleManager<ApplicationRole> roleManager,
            ApplicationDbContext context,
            SignInManager<ApplicationUser> signInManager,
            IRoles roles,

@@ -16,6 +16,6 @@ namespace coderush.Models
         public string OldPassword { get; set; }
         public string ProfilePicture { get; set; } = "/upload/blank-person.png";
 
-        public string ApplicationUserId { get; set; }
+        public int ApplicationUserId { get; set; }
     }
 }

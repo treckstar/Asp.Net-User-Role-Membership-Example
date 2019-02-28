@@ -9,6 +9,6 @@ namespace coderush.Services
     {
         Task GenerateRolesFromPagesAsync();
 
-        Task AddToRoles(string applicationUserId);
+        Task AddToRoles(int applicationUserId);
     }
 }

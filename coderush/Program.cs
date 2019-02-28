@@ -28,7 +28,7 @@ namespace coderush
                 {
                     var context = services.GetRequiredService<ApplicationDbContext>();
                     var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
-                    var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
+                    var roleManager = services.GetRequiredService<RoleManager<ApplicationRole>>();
                     var functional = services.GetRequiredService<IFunctional>();
 
                     DbInitializer.Initialize(context, functional).Wait();

@@ -37,7 +37,7 @@ namespace coderush
 
             var identityDefaultOptions = identityDefaultOptionsConfigurationSection.Get<IdentityDefaultOptions>();
 
-            services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+            services.AddIdentity<ApplicationUser, ApplicationRole>(options =>
             {
                 // Password settings
                 options.Password.RequireDigit = identityDefaultOptions.PasswordRequireDigit;

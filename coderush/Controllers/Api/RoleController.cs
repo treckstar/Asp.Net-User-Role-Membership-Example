@@ -21,12 +21,12 @@ namespace coderush.Controllers.Api
     {
         private readonly ApplicationDbContext _context;
         private readonly UserManager<ApplicationUser> _userManager;
-        private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly RoleManager<ApplicationRole> _roleManager;
         private readonly IRoles _roles;
 
         public RoleController(ApplicationDbContext context,
                         UserManager<ApplicationUser> userManager,
-                        RoleManager<IdentityRole> roleManager,
+                        RoleManager<ApplicationRole> roleManager,
                         IRoles roles)
         {
             _context = context;
@@ -41,7 +41,7 @@ namespace coderush.Controllers.Api
         {
             await _roles.GenerateRolesFromPagesAsync();
 
-            List<IdentityRole> Items = new List<IdentityRole>();
+            List<ApplicationRole> Items = new List<ApplicationRole>();
             Items = _roleManager.Roles.ToList();
             int Count = Items.Count();
             return Ok(new { Items, Count });

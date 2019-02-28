@@ -20,11 +20,11 @@ namespace coderush.Controllers.Api
     {
         private readonly ApplicationDbContext _context;
         private readonly UserManager<ApplicationUser> _userManager;
-        private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly RoleManager<ApplicationRole> _roleManager;
 
         public ChangePasswordController(ApplicationDbContext context,
                         UserManager<ApplicationUser> userManager,
-                        RoleManager<IdentityRole> roleManager)
+                        RoleManager<ApplicationRole> roleManager)
         {
             _context = context;
             _userManager = userManager;
